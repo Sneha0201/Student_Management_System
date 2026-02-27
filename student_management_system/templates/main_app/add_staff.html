@@ -1,0 +1,13 @@
+<h1>Add Staff</h1>
+<form method="post" action="{% url 'save_staff' %}">
+    {% csrf_token %}
+    <label>Username:</label>
+    <input type="text" name="username" required><br><br>
+    <label>Password:</label>
+    <input type="password" name="password" required><br><br>
+    <label>Address:</label>
+    <input type="text" name="address" required><br><br>
+    <button type="submit">Save Staff</button>
+</form>
+<br>
+<a href="{% url 'admin_home' %}">Back to Admin Home</a>

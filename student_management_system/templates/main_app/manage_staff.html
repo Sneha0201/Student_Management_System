@@ -1,0 +1,22 @@
+<h1>Manage Staff</h1>
+<table border="1" cellpadding="10">
+    <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Address</th>
+        <th>Actions</th>
+    </tr>
+    {% for s in staff_list %}
+    <tr>
+        <td>{{ s.id }}</td>
+        <td>{{ s.staff.username }}</td>
+        <td>{{ s.address }}</td>
+        <td>
+            <a href="{% url 'edit_staff' s.pk %}">Edit</a> |
+            <a href="{% url 'delete_staff' s.pk %}">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+<br>
+<a href="{% url 'admin_home' %}">Back</a>

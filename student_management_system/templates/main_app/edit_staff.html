@@ -1,0 +1,12 @@
+<h1>Edit Staff</h1>
+<form method="post" action="{% url 'update_staff' %}">
+    {% csrf_token %}
+    <input type="hidden" name="staff_id" value="{{ staff.id }}">
+    <label>Username:</label>
+    <input type="text" value="{{ staff.staff.username }}" disabled><br><br>
+    <label>Address:</label>
+    <input type="text" name="address" value="{{ staff.address }}"><br><br>
+    <button type="submit">Update</button>
+</form>
+<br>
+<a href="{% url 'manage_staff' %}">Back</a>

@@ -1,0 +1,22 @@
+<h2>Edit Student</h2>
+<form method="post" action="{% url 'update_student' %}">
+    {% csrf_token %}
+    <input type="hidden" name="student_id" value="{{ student.id }}">
+    Username:
+    <input type="text" value="{{ student.student.username }}" disabled><br><br>
+    Course:
+    <input type="text" name="course" value="{{ student.course }}"><br><br>
+    Address:
+    <input type="text" name="address" value="{{ student.address }}"><br><br>
+    Staff:
+    <select name="staff">
+        {% for staff in staff_list %}
+        <option value="{{ staff.id }}"
+        {% if staff.id == student.staff.id %}selected{% endif %}>
+        {{ staff.staff.username }}
+    </option>
+    {% endfor %}
+    </select><br><br>
+    <button type="submit">Update</button>
+</form>
+<a href="{% url 'manage_student' %}">Back</a>
