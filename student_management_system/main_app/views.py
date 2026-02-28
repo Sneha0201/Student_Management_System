@@ -164,3 +164,10 @@ def student_profile(request):
         return redirect("login")
     student = Student.objects.get(student=request.user)
     return render(request, "main_app/student_profile.html", {"student": student})
+
+@login_required(login_url="login")
+def staff_profile(request):
+    if not hasattr(request.user, "staff"):
+        return redirect("login")
+    staff = Staff.objects.get(staff = request.user)
+    return render(request, "main_app/staff_profile.html", { "staff" : staff})

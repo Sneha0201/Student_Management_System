@@ -22,4 +22,5 @@ urlpatterns = [
     path("update-student/", views.update_student, name="update_student"),
     path("delete-student/<int:student_id>/", views.delete_student, name="delete_student"),
     path("student-profile/", views.student_profile, name="student_profile"),
+    path("staff-profile/", views.staff_profile, name="staff_profile"),
 ]
