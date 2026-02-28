@@ -1,4 +1,8 @@
-<h1>Admin Home Page</h1>
+<h2>Admin Dashboard</h2>
+<p>Total Admin: {{ total_admin }}</p>
+<p>Total Staff: {{ total_staff }}</p>
+<p>Total Student: {{ total_student }}</p>
+<br>
 <a href="{% url 'add_staff' %}">Add Staff</a><br><br>
 <a href="{% url 'add_student' %}">Add Student</a><br><br>
 <a href="{% url 'manage_staff' %}">Manage Staff</a><br><br>
