@@ -3,7 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from main_app.models import Staff, Student
 from django.contrib.auth.decorators import login_required
-from .models import Student
+from .models import Student, Staff
 
 def login_view(request):
     if request.method == "POST":
@@ -33,7 +33,15 @@ def admin_required(view_func):
 
 @login_required(login_url="login")
 def admin_home(request):
-    return render(request, "main_app/admin_home.html")
+    total_staff = Staff.objects.count()
+    total_student = Student.objects.count()
+    total_admin = User.objects.filter(is_superuser=True).count()
+    context = {
+        "total_staff": total_staff,
+        "total_student": total_student,
+        "total_admin": total_admin,
+    }
+    return render(request, "main_app/admin_home.html", context)
 
 @login_required(login_url="login")
 def student_home(request):
