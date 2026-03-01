@@ -1,8 +1,20 @@
 <h2>Admin Dashboard</h2>
-<p>Total Admin: {{ total_admin }}</p>
-<p>Total Staff: {{ total_staff }}</p>
-<p>Total Student: {{ total_student }}</p>
-<br>
+<div style="display: flex; gap: 20px;">
+    <div style="border:1px solid black; padding: 20px;">
+        <h3>Total Admin</h3>
+        <p>{{ total_admin }}</p>
+    </div> 
+    <div style="border: 1px solid black; padding:20px">
+        <h3>Total Staff</h3>
+        <p>{{ total_staff }}</p>
+    </div>
+    <div style="border: 1px solid black; padding: 20px;">
+        <h3>Total Student</h3>
+        <p>{{ total_student }}</p>
+    </div>
+</div>
+<br><br>
+<h3>A</h3>
 <a href="{% url 'add_staff' %}">Add Staff</a><br><br>
 <a href="{% url 'add_student' %}">Add Student</a><br><br>
 <a href="{% url 'manage_staff' %}">Manage Staff</a><br><br>
