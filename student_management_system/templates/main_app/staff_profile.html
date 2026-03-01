@@ -1,6 +1,22 @@
 <h2>Staff Profile</h2>
-<p><strong>Username:</strong>{{ staff.staff.username }}</p>
-<p><strong>Address:</strong>{{ staff.address }}</p>
+<p><b>Username:</b>{{ staff.staff.username }}</p>
+<p><b>Address:</b>{{ staff.address }}</p>
+<h3>Total Students: {{ student_count }}</h3>
+<h3>My Students</h3>
+<table border="1" cellpadding="10">
+    <tr>
+        <th>Name</th>
+        <th>Course</th>
+        <th>Gender</th>
+    </tr>
+    {% for student in students %}
+    <tr>
+        <td>{{ student.student.username }}</td>
+        <td>{{ student.course }}</td>
+        <td>{{ student.gender }}</td>
+    </tr>
+    {% endfor %}
+</table>
 <br>
 <a href="{% url 'staff_home' %}">Back</a>" |
 <a href="{% url 'logout' %}">Logout</a>
