@@ -175,7 +175,11 @@ def student_profile(request):
 
 @login_required(login_url="login")
 def staff_profile(request):
-    if not hasattr(request.user, "staff"):
-        return redirect("login")
     staff = Staff.objects.get(staff = request.user)
-    return render(request, "main_app/staff_profile.html", { "staff" : staff})
+    students = Student.objects.filter(staff=staff)
+    context = {
+        "staff": staff,
+        "students": students,
+        "student_count": students.count()
+    }
+    return render(request, "main_app/staff_profile.html", context)
