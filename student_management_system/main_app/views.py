@@ -168,10 +168,9 @@ def delete_student(request, student_id):
 
 @login_required(login_url="login")
 def student_profile(request):
-    if not hasattr(request.user, "student"):
-        return redirect("login")
     student = Student.objects.get(student=request.user)
-    return render(request, "main_app/student_profile.html", {"student": student})
+    context = {"student": student}
+    return render(request, "main_app/student_profile.html", context)
 
 @login_required(login_url="login")
 def staff_profile(request):
