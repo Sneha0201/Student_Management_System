@@ -3,7 +3,7 @@
 <p><strong>Course:</strong>{{ student.course }}</p>
 <p><strong>Gender:</strong>{{ student.gender }}</p>
 <p><strong>Address:</strong>{{ student.address }}</p>
-<p><strong>Staff:</strong>{{ student.staff.staff.username }}</p>
+<p><strong>Assigned Staff:</strong>{{ student.staff.staff.username }}</p>
 <br>
 <a href="{% url 'student_home' %}">Back</a> |
 <a href="{% url 'logout' %}">Logout</a>
