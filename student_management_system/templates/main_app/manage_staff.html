@@ -1,3 +1,5 @@
+{% extends "main_app/base.html" %}
+{% block content %}
 <h1>Manage Staff</h1>
 <table border="1" cellpadding="10">
     <tr>
@@ -20,3 +22,4 @@
 </table>
 <br>
 <a href="{% url 'admin_home' %}">Back</a>
+{% endblock %}
