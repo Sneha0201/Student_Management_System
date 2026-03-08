@@ -1,8 +1,15 @@
 {% extends "main_app/base.html" %}
 {% block content %}
 <form method="GET">
-    <input type="text" name="q" placeholder="Search student by name">
-    <button type="submit">Search</button>
+    <input type="text" name="q" placeholder="Search student">
+    <select name="course">
+        <option value="">Filter by Course</option>
+        <option value="BCA">BCA</option>
+        <option value="BTech">BTech</option>
+        <option value="MCA">MCA</option>
+        <option value="MBA">MBA</option>
+    </select>
+    <button type="submit">Apply</button>
 </form>
 <br>
 <h2>Manage Students</h2>
