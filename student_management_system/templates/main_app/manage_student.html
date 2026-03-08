@@ -1,5 +1,10 @@
 {% extends "main_app/base.html" %}
 {% block content %}
+<form method="GET">
+    <input type="text" name="q" placeholder="Search student by name">
+    <button type="submit">Search</button>
+</form>
+<br>
 <h2>Manage Students</h2>
 <table border="1" cellpadding="10">
     <tr>
