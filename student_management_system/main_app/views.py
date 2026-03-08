@@ -1,3 +1,5 @@
+import csv 
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
@@ -193,3 +195,19 @@ def staff_profile(request):
         "student_count": students.count()
     }
     return render(request, "main_app/staff_profile.html", context)
+
+def export_students_csv(request):
+    response = HttpResponse(content_type = 'test/csv')
+    response['Content-Disposition'] = 'attachment; filename="students.csv"'
+    writer = csv.writer(response)
+    writer.writerow(['Username', 'Course', 'Gender', 'Address', 'Staff'])
+    students = Student.objects.all()
+    for student in students:
+        writer.writerow([
+            student.student.username,
+            student.course,
+            student.gender,
+            student.address,
+            student.staff.staff.username
+        ])
+    return response
