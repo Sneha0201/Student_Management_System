@@ -140,10 +140,12 @@ def delete_staff(request, staff_id):
 @admin_required
 def manage_student(request):
     query = request.GET.get('q')
+    course = request.GET.get('course')
+    students = Student.objects.all()
     if query:
-        students = Student.objects.filter(student__username__icontains=query)
-    else:
-        students = Student.objects.all()
+        students = students.filter(student__username__icontains=query)
+    if course:
+        students = students.filter(course__icontains=course)
     context = {"students": students}
     return render(request, "main_app/manage_student.html", context)
 
