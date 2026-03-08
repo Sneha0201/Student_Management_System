@@ -139,8 +139,13 @@ def delete_staff(request, staff_id):
 @login_required(login_url="login")
 @admin_required
 def manage_student(request):
-    students = Student.objects.all()
-    return render(request, "main_app/manage_student.html", {"students": students})
+    query = request.GET.get('q')
+    if query:
+        students = Student.objects.filter(student__username__icontains=query)
+    else:
+        students = Student.objects.all()
+    context = {"students": students}
+    return render(request, "main_app/manage_student.html", context)
 
 def edit_student(request, student_id):
     student = Student.objects.get(id=student_id)
