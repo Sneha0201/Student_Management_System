@@ -18,7 +18,20 @@
             <a href="{% url 'manage_student' %}">Manage Student</a><br><br>
             {% endif %} 
             {% if user.staff %}
-            <a href="{% }"
+            <a href="{% url 'staff_home' %}">Dashboard</a><br><br>
+            <a href="{% url 'staff_profile' %}">My Profile</a><br><br>
+            <a href="{% url 'manage_student' %}">My Students</a><br><br>
+            {% endif %}
+            {% if user.student %}
+            <a href="{% url 'student_home' %}">Dashboard</a><br><br>
+            <a href="{% url 'student_profile' %}">My Profile</a><br><br>
+            {% endif %}
+            <a href="{% url 'logout' %}">Logout</a>
+        </div>
+        <!--Main Content-->
+        <div style="flex:1; padding:20px;">
+            {% block content %}
+            {% endblock %}
         </div>
     </div>
 </body>
