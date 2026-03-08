@@ -1,3 +1,5 @@
+{% extends "main_app/base.html" %}
+{% block content %}
 <h2>Admin Dashboard</h2>
 <div style="display: flex; gap: 20px;">
     <div style="border:1px solid black; padding: 20px;">
@@ -13,10 +15,4 @@
         <p>{{ total_student }}</p>
     </div>
 </div>
-<br><br>
-<h3>Actions</h3>
-<a href="{% url 'add_staff' %}">Add Staff</a><br><br>
-<a href="{% url 'add_student' %}">Add Student</a><br><br>
-<a href="{% url 'manage_staff' %}">Manage Staff</a><br><br>
-<a href="{% url 'manage_student' %}">Manage Students</a><br><br>
-<a href="{% url 'logout' %}">Logout</a>
+{% endblock %}
