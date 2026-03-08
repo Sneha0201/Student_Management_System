@@ -1,3 +1,5 @@
+{% extends "main_app/base.html" %}
+{% block content %}
 <h2>Manage Students</h2>
 <table border="1" cellpadding="10">
     <tr>
@@ -21,3 +23,4 @@
     {% endfor %}
 </table>
 <a href="{% url 'admin_home' %}">Back</a>
+{% endblock %}
