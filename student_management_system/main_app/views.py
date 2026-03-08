@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
-from main_app.models import Staff, Student
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
+from main_app.models import Staff, Student
 from .models import Student, Staff
 
 def login_view(request):
@@ -146,7 +147,10 @@ def manage_student(request):
         students = students.filter(student__username__icontains=query)
     if course:
         students = students.filter(course__icontains=course)
-    context = {"students": students}
+    paginator = Paginator(students, 5)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    context = {"students": page_obj}
     return render(request, "main_app/manage_student.html", context)
 
 def edit_student(request, student_id):
