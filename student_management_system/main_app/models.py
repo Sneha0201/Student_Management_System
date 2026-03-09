@@ -24,3 +24,11 @@ class Student(models.Model):
 
     def __str__(self):
         return self.student.username
+
+class Attendance(models.Model):
+    student = models.ForeignKey(Student, on_delete=models.CASCADE)
+    date = models.DateField()
+    status = models.BooleanField(default=False)
+    
+    def __str__(self):
+        return f"{self.student.student.username} - {self.date}"
