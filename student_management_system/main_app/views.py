@@ -1,4 +1,5 @@
 import csv 
+from datetime import date
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
@@ -6,7 +7,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from main_app.models import Staff, Student
-from .models import Student, Staff
+from .models import Attendance, Student, Staff
 
 def login_view(request):
     if request.method == "POST":
@@ -211,3 +212,12 @@ def export_students_csv(request):
             student.staff.staff.username
         ])
     return response
+
+def mark_attendance(request, student_id):
+    student = Student.objects.get(id=student_id)
+    Attendance.objects.create(
+        student=student,
+        date=date.today(),
+        status=True
+    )
+    return redirect("manage_student")
