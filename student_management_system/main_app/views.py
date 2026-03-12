@@ -221,3 +221,8 @@ def mark_attendance(request, student_id):
         status=True
     )
     return redirect("manage_student")
+
+def attendance_list(request):
+    attendance_records = Attendance.objects.all().order_by("-date")
+    context = {"attendance_records": attendance_records}
+    return render(request, "main_app/attendance_list.html", context)
