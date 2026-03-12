@@ -25,4 +25,5 @@ urlpatterns = [
     path("staff-profile/", views.staff_profile, name="staff_profile"),
     path("export-students/", views.export_students_csv, name="export_students_csv"),
     path("mark-attendance/<int:student_id>/", views.mark_attendance, name="mark_attendance"),
+    path("attendance/", views.attendance_list, name="attendance_list"),
 ]
