@@ -2,5 +2,23 @@
 {% block content %}
 <h2>Attendance Record</h2>
 <table border="1" cellpadding="10">
-    
+    <tr>
+        <th>Student</th>
+        <th>Date</th>
+        <th>Status</th>
+    </tr>
+    {% for a in attendance_records %}
+    <tr>
+        <td>{{ a.student.student.username }}</td>
+        <td>{{ a.date }}</td>
+        <td>
+            {% if a.status %}
+            Present
+            {% else %}
+            Absent
+            {% endif %}
+        </td>
+    </tr>
+    {% endblock %}
 </table>
+{% endblock %}
