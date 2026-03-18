@@ -17,6 +17,7 @@
             <a href="{% url 'manage_staff' %}">Manage Staff</a><br><br>
             <a href="{% url 'add_student' %}">Add Student</a><br><br>
             <a href="{% url 'manage_student' %}">Manage Student</a><br><br>
+            <a href="{% url 'attendance_list' %}">Attendance</a><br><br>
             {% endif %} 
             {% if user.staff %}
             <a href="{% url 'staff_home' %}">Dashboard</a><br><br>
