@@ -1,18 +1,23 @@
 {% extends "main_app/base.html" %}
 {% block content %}
 <h2>Admin Dashboard</h2>
-<div style="display: flex; gap: 20px;">
-    <div style="background:#FF9800; color:white; padding: 20px; width:200px;">
-        <h3>Total Admin</h3>
-        <p>{{ total_admin }}</p>
-    </div> 
-    <div style="background: #2196F3; color: white; padding:20px; width:200px;">
-        <h3>Total Staff</h3>
-        <p>{{ total_staff }}</p>
+<div class="row">
+    <div class="col-md-4">
+        <div class="card bg-success text-white p-3">
+            <h4>Total Students</h4>
+            <h2>{{ total_student }}</h2>
+        </div>
     </div>
-    <div style="background:#4CAF50; color:white; padding: 20px; width:200px;">
-        <h3>Total Student</h3>
-        <p>{{ total_student }}</p>
+    <div class="col-md-4">
+        <div class="card bg-primary text-white p-3">
+            <h4>Total Staff</h4>
+            <h2>{{ total_staff }}</h2>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card bg-warning text-white p-3">
+            <h4>Total Admin</h4>
+            <h2>{{ total_admin }}</h2>
+        </div>
     </div>
 </div>
-{% endblock %}
