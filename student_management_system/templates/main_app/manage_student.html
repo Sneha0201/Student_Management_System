@@ -30,9 +30,9 @@
         <td>{{ s.course }}</td>
         <td>{{ s.staff.staff.username }}</td>
         <td>
-            <a href="{% url 'edit_student' s.id %}">Edit</a> |
-            <a href="{% url 'delete_student' s.id %}">Delete</a> |
-            <a href="{% url 'mark_attendance' s.id %}">Mark Present</a>
+            <a href="{% url 'edit_student' s.id %}" class="btn btn-sm btn-primary">Edit</a> |
+            <a href="{% url 'delete_student' s.id %}" class="btn btn-sm btn-danger">Delete</a> |
+            <a href="{% url 'mark_attendance' s.id %}" class="btn btn-sm btn-success">Present</a>
         </td>
     </tr>
     {% endfor %}
