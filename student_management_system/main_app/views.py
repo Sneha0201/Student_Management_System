@@ -223,6 +223,17 @@ def mark_attendance(request, student_id):
     return redirect("manage_student")
 
 def attendance_list(request):
-    attendance_records = Attendance.objects.all().order_by("-date")
-    context = {"attendance_records": attendance_records}
+    students = Student.objects.all()
+    student_data = []
+    for student in students:
+        total = Attendance.objects.filter(student=student).count()
+        present = Attendance.objects.filter(student=student, status=True).count()
+        percentage = 0
+        if total > 0:
+            percentage = (present / total) * 100
+        student_data.append({
+            "student": student,
+            "percentage": round(percentage, 2) 
+        })
+        context = {"student_data": student_data}
     return render(request, "main_app/attendance_list.html", context)
